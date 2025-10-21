@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Edit Stopover</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">Flight Management</a>
+        <a class="btn btn-primary ms-2" href="/stopover">Back to Stopovers List</a>
+    </div>
+</nav>
+<div class="container mt-4">
+    <h1>Edit Stopover</h1>
+    <form th:action="@{/stopover/update}" method="post">
+        <input type="hidden" name="id" th:value="${stopover.id}" />
+        <div class="mb-3">
+            <label for="flightId" class="form-label">Flight ID</label>
+            <input type="text" class="form-control" id="flightId" name="flight.id" th:value="${stopover.flight.id}" required />
+        </div>
+        <div class="mb-3">
+            <label for="airportId" class="form-label">Airport ID</label>
+            <input type="text" class="form-control" id="airportId" name="airport.id" th:value="${stopover.airport.id}" required />
+        </div>
+        <div class="mb-3">
+            <label for="stopoverTime" class="form-label">Stopover Time</label>
+            <input type="datetime-local" class="form-control" id="stopoverTime" name="stopoverTime" th:value="${stopover.stopoverTime}" required />
+        </div>
+        <button type="submit" class="btn btn-primary">Save Changes</button>
+    </form>
+</div>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<div th:fragment="bookingModal">
+    <div class="modal fade" id="bookingModal" tabindex="-1" aria-labelledby="modalTitle" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalTitle">Adding Booking</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form th:action="@{/booking/save}" method="post">
+                        <input type="hidden" id="bookingId" name="id" th:value="${booking.id}">
+
+                        <!-- Customer Name -->
+                        <div class="mb-3">
+                            <label for="userName" class="form-label">Customer Name</label>
+                            <input type="text" class="form-control" id="userName" name="user.name" th:value="${booking.user.name}" required>
+                        </div>
+
+                        <!-- Flight Name -->
+                        <div class="mb-3">
+                            <label for="flightName" class="form-label">Flight</label>
+                            <input type="text" class="form-control" id="flightName" name="flight.name" th:value="${booking.flight.name}" required>
+                        </div>
+
+                        <!-- Departure Airport -->
+                        <div class="mb-3">
+                            <label for="departureAirport" class="form-label">Departure Airport</label>
+                            <input type="text" class="form-control" id="departureAirport" name="departureAirport.name" th:value="${booking.departureAirport.name}" required>
+                        </div>
+
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                            <button type="submit" class="btn btn-primary">Save Booking</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

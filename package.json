@@ -1,0 +1,19 @@
+{
+  "name": "project-myronabotanel",
+  "version": "1.0.0",
+  "description": "\"# flight-booking-system-spring-boot\"",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LAB-PS-2024/project-myronabotanel.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/LAB-PS-2024/project-myronabotanel/issues"
+  },
+  "homepage": "https://github.com/LAB-PS-2024/project-myronabotanel#readme"
+}

@@ -1,0 +1,41 @@
+<div th:fragment="stopoverModal">
+    <div class="modal fade" id="stopoverModal" tabindex="-1" aria-labelledby="modalTitle" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalTitle">Adding Stopover</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form th:action="@{/stopover/save}" method="post">
+                        <input type="hidden" id="stopoverId" name="id">
+
+                        <div class="mb-3">
+                            <label for="flight" class="form-label">Flight</label>
+                            <select class="form-select" id="flight" name="flight.id" required>
+                                <option th:each="flight : ${flights}" th:value="${flight.id}" th:text="${flight.flightNumber}"></option>
+                            </select>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="airport" class="form-label">Airport</label>
+                            <select class="form-select" id="airport" name="airport.id" required>
+                                <option th:each="airport : ${airports}" th:value="${airport.id}" th:text="${airport.name}"></option>
+                            </select>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="stopoverTime" class="form-label">Stopover Time</label>
+                            <input type="datetime-local" class="form-control" id="stopoverTime" name="stopoverTime" required>
+                        </div>
+
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                            <button type="submit" class="btn btn-primary">Save Stopover</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

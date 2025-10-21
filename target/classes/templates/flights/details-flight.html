@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Detalii Zbor</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">Flight Management</a>
+        <a href="/flight" class="btn btn-secondary ms-2">Înapoi la Lista Zborurilor</a>
+    </div>
+</nav>
+
+<div class="container mt-4">
+    <h2>Detalii Zbor</h2>
+
+    <table class="table table-bordered">
+        <tr>
+            <th>ID</th>
+            <td th:text="${flight.id}"></td>
+        </tr>
+        <tr>
+            <th>Companie Aeriană</th>
+            <td th:text="${flight.airline}"></td>
+        </tr>
+        <tr>
+            <th>Plecare</th>
+            <td th:text="${flight.departureAirport.name}"></td>
+        </tr>
+        <tr>
+            <th>Sosire</th>
+            <td th:text="${flight.arrivalAirport.name}"></td>
+        </tr>
+        <tr>
+            <th>Durată Zbor</th>
+            <td th:text="${flight.flightDuration} + ' min'"></td>
+        </tr>
+        <tr>
+            <th>Locuri Disponibile</th>
+            <td th:text="${flight.totalSeats}"></td>
+        </tr>
+        <tr>
+            <th>Preț per Loc</th>
+            <td th:text="'$' + ${flight.pricePerSeat}"></td>
+        </tr>
+    </table>
+
+    <a class="btn btn-warning" th:href="@{/flight/edit/{id}(id=${flight.id})}">Editează</a>
+    <a class="btn btn-danger" th:href="@{/flight/delete/{id}(id=${flight.id})}" onclick="return confirm('Ești sigur?')">Șterge</a>
+</div>
+
+</body>
+</html>

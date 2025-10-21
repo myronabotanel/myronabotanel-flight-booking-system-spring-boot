@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Lista Escalelor</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+</head>
+<body>
+
+<!-- Bara de navigare -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">Flight Management</a>
+        <a href="/stopover/new" class="btn btn-primary ms-2">Adaugă Escală</a>
+    </div>
+</nav>
+
+<!-- Conținut principal -->
+<div class="container mt-4">
+    <h2>Lista Escalelor</h2>
+
+    <table class="table table-striped">
+        <thead class="table-dark">
+        <tr>
+            <th>ID Zbor</th>
+            <th>Companie Aeriană</th>
+            <th>Aeroport Escală</th>
+            <th>Timp Escală</th>
+            <th>Acțiuni</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="stopover : ${stopovers}">
+            <td th:text="${stopover.flight.id}"></td>
+            <td th:text="${stopover.flight.airline}"></td>
+            <td th:text="${stopover.airport.name}"></td>
+            <td th:text="${stopover.stopoverTime} + ' min'"></td>
+            <td>
+                <a class="btn btn-info btn-sm" th:href="@{/stopover/details/{id}(id=${stopover.id})}">Vezi Detalii</a>
+                <a class="btn btn-warning btn-sm" th:href="@{/stopover/edit/{id}(id=${stopover.id})}">Editează</a>
+                <a class="btn btn-danger btn-sm" th:href="@{/stopover/delete/{id}(id=${stopover.id})}" onclick="return confirm('Ești sigur?')">Șterge</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+</body>
+</html>

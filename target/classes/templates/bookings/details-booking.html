@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Detalii Rezervare</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+</head>
+<body>
+
+<div class="container mt-4">
+    <h2>Detalii Rezervare</h2>
+
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">Rezervare #<span th:text="${booking.id}"></span></h5>
+            <p><strong>Utilizator:</strong> <span th:text="${booking.user.name}"></span></p>
+            <p><strong>Zbor:</strong> <span th:text="${booking.flight.airline}"></span></p>
+            <p><strong>Locuri rezervate:</strong> <span th:text="${booking.numberOfSeats}"></span></p>
+            <p><strong>Preț Total:</strong> <span th:text="${booking.totalPrice}"></span> €</p>
+            <p><strong>Aeroport Plecare:</strong> <span th:text="${booking.departureAirport.name}"></span></p>
+            <p><strong>Aeroport Sosire:</strong> <span th:text="${booking.arrivalAirport.name}"></span></p>
+        </div>
+    </div>
+
+    <a href="/booking" class="btn btn-secondary mt-3">Înapoi la listă</a>
+</div>
+
+</body>
+</html>

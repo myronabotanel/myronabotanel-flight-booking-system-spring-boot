@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Airports List</title>
+</head>
+<body>
+<h1>Airports</h1>
+<a href="airport/new">Create New Airport</a>
+<table border="1">
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+    </tr>
+    <tr th:each="airport : ${airports}">
+        <td th:text="${airport.id}"></td>
+        <td th:text="${airport.name}"></td>
+        <td>
+            <a th:href="@{/airports/edit/{id}(id=${airport.id})}">Edit</a> |
+            <a th:href="@{/airports/delete/{id}(id=${airport.id})}">Delete</a>
+        </td>
+    </tr>
+</table>
+</body>
+</html>
